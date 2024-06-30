@@ -67,7 +67,7 @@ Contributions are welcome! Please follow these steps:
 6. Create a new Pull Request.
 
 ## Credits
-Developed by [Your Name](https://www.linkedin.com/in/gustavo-moreno-8a925b26a/).
+Developed by [DevGusIT](https://www.linkedin.com/in/gustavo-moreno-8a925b26a/).
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
