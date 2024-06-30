@@ -1,7 +1,6 @@
 # Habit Tracker
 
-![Captura de tela 2024-06-30 063643](https://github.com/DevGusIT/py-django-habits/assets/149635482/703d9ef5-4f24-4985-af03-ff16133dd862)
-1f4746dc)
+![Captura de tela 2024-06-30 063959](https://github.com/DevGusIT/py-django-habits/assets/149635482/47546a83-aff1-4196-8242-9e61e044b2eb)
 
 Habit Tracker is a web application built with Django, Python, HTML, and CSS, designed to help users track their daily habits and monitor their progress over time.
 
