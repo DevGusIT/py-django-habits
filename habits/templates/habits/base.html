@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <!-- Adicione o Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Adicione o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-ZpdIyjRAH07HchOrwu0b0tZ2Np0eI+gD1eP2v4ICp8T6Pw4W38+xE3+5L29ByXUQ4j6smKxKyvgZy6A+WO39yw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Adicione seu CSS personalizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(-45deg, #e95950, #8a63d2, #2d5eb8);
+            /* Degradê linear com ângulo -45 graus */
+            background-size: 400% 400%;
+            /* Tamanho do gradiente */
+            animation: gradientAnimation 15s ease infinite;
+            /* Animação do gradiente */
+            overflow-x: hidden;
+            /* Esconder a rolagem horizontal */
+            color: white;
+            /* Cor do texto padrão */
+            height: 100vh;
+            /* Altura total da página */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+                /* Posição inicial do gradiente */
+            }
+
+            50% {
+                background-position: 100% 50%;
+                /* Posição no meio da animação */
+            }
+
+            100% {
+                background-position: 0% 50%;
+                /* Posição final do gradiente */
+            }
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #ffffff;
+            /* Cor do navbar */
+            text-align: center;
+            /* Centraliza o conteúdo do navbar */
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            /* Fonte negrito */
+            color: #007bff;
+            /* Cor do texto */
+        }
+
+        .navbar-toggler-icon {
+            border-color: #007bff;
+            /* Cor do ícone do toggler */
+        }
+
+        .nav-link {
+            color: #007bff;
+            /* Cor dos links */
+            transition: background-color 0.3s ease;
+            /* Transição suave */
+            padding: 8px 15px;
+            /* Espaçamento interno */
+            border-radius: 4px;
+            /* Borda arredondada */
+        }
+
+        .nav-link:hover {
+            background-color: #007bff;
+            /* Cor de fundo ao passar o mouse */
+            color: #ffffff;
+            /* Cor do texto ao passar o mouse */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Fundo semi-transparente */
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            /* Sombra suave */
+            padding: 30px;
+            border-radius: 10px;
+            /* Borda arredondada */
+            text-align: center;
+            color: #343a40;
+            /* Cor do texto dentro do container */
+            margin-top: 50px;
+            /* Espaçamento superior */
+            width: 80%;
+            /* Largura do container */
+            max-width: 800px;
+            /* Largura máxima do container */
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: auto;
+            /* Fixa no rodapé */
+            background-color: transparent;
+            /* Fundo transparente */
+            color: #ffffff;
+            /* Cor do texto do rodapé */
+            padding: 20px 0;
+            /* Espaçamento interno */
+            text-align: center;
+            /* Centraliza o conteúdo */
+        }
+
+        .footer a {
+            color: #ffffff;
+            /* Cor dos links */
+            text-decoration: none;
+            /* Sem sublinhado */
+            margin: 0 10px;
+            /* Espaçamento entre os links */
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            /* Sublinhado ao passar o mouse */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'habit_list' %}">Habit Tracker, Sua Lista de Hábitos!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'habit_create' %}">Deseja criar um novo hábito?</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1>Bem-vindo ao Habit Tracker!</h1>
+        <p>Registre seus hábitos diários e acompanhe seu progresso.</p>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer">
+        <p>Desenvolvido progresso<a href="https://github.com/DevGusIT" target="_blank">DevGusIT</a></p>
+    </footer>
+
+    <!-- Adicione o jQuery (necessário para o Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Adicione o Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{% extends 'habits/base.html' %}
+
+{% block content %}
+<h2>Confirme se você realmente deseja deleta-lo</h2>
+<p>Você tem certeza que quer deletar seu hábito "{{ habit.nome }}"? 😉</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmar</button>
+    <a href="{% url 'habit_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
